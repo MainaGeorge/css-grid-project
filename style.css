@@ -594,14 +594,16 @@ section#events-content {
   background-color: white;
 }
 
-section#events-content {
+section#events-content,
+section#features-content {
   grid-column: container-start / col-end 9;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
-section#events-content > div {
+section#events-content > div,
+section#features-content > div {
   padding: var(--padding-section);
   display: grid;
 
@@ -629,18 +631,21 @@ section#events-content > div:last-child {
   background-position: center;
   background-size: cover;
 }
-section#events-content > div h2[class*="title"] {
+section#events-content > div h2[class*="title"],
+section#features-content > div h2[class*="title"] {
   grid-area: title;
   font-size: var(--font-size-title);
   font-weight: 400;
   color: white;
 }
 
-section#events-content > div p[class*="para"] {
+section#events-content > div p[class*="para"],
+section#features-content > div p[class*="para"] {
   grid-area: para;
 }
 
-section#events-text {
+section#events-text,
+section#features-text {
   grid-column: col-start 10 / center-end;
   background-color: var(--color-tertiary);
   display: grid;
@@ -649,11 +654,13 @@ section#events-text {
   place-items: center;
 }
 
-.events-text__content {
+.events-text__content,
+.features-text__content {
   transform: rotate(90deg);
 }
 
 .events-text__content--title,
+.features-text__content--title,
 .gallery-text__content--title {
   color: white;
   font-weight: 500;
@@ -757,14 +764,25 @@ div.gallery-carousel__img-container {
 }
 
 
-section#features-content {
-  background-color: var(--color-tertiary);
-  grid-column: center-start / col-end 9;
+section#features-content > div:first-child {
+  background: linear-gradient(var(--color-secondary-m-light), var(--color-secondary-m-light)), url('img/Features/cocktail.jpg');
+  border-right: solid .2rem var(--color-secondary);
 }
 
+section#features-content > div:last-child {
+  background: linear-gradient(var(--color-secondary-m-light), var(--color-secondary-m-light)), url('img/Features/surfing.jpg');
+  border-left: solid .2rem var(--color-secondary);
+}
+
+section#features-content > div:first-child,
+section#features-content > div:last-child{
+  background-position: left;
+  background-size: cover;
+}
+
+
 section#features-text {
-  background-color: var(--color-quartenary);
-  grid-column: col-start 10 / center-end;
+  background-color: var(--color-secondary);
 }
 
 section#testimonials {
@@ -865,7 +883,8 @@ footer#footer {
     display: none;
   }
 
-  section#events-content {
+  section#events-content,
+  section#features-content {
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   }
 
